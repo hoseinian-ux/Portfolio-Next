@@ -1,4 +1,16 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+const nextConfig={
+  images:{
+        remotePatterns:[{
+            protocol:'https',
+            hostname:'moviesapi.ir',
+            pathname:'**'
+        }]
+    }
+}
+    
+
+  
+
 
 export default nextConfig;
+
