@@ -27,7 +27,7 @@ export default function Projects() {
       icon: "/icons/n.svg",
       title: "پورتفولیو شخصی",
       description: "طراحی وبسایت با تکنولوژی NextJs , Tailwind",
-      href: "https://your-portfolio.vercel.app",
+      href: "portfolio-next-5mju.vercel.app",
     },
   ];
 
