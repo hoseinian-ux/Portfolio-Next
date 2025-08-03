@@ -21,13 +21,13 @@ export default function Projects() {
       icon: "/icons/r.png",
       title: "وبسایت فروشگاهی",
       description: "طراحی وبسایت با تکنولوژی React ",
-      href: "https://hoseinian-ux.github.io/",
+     href: "https://hoseinian-ux.github.io/Web-React/",
     },
     {
       icon: "/icons/n.svg",
       title: "پورتفولیو شخصی",
       description: "طراحی وبسایت با تکنولوژی NextJs , Tailwind",
-      href: "portfolio-next-5mju.vercel.app",
+      href: "https://portfolio-next-5mju.vercel.app/",
     },
   ];
 

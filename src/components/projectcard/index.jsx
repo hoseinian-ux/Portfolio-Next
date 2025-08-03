@@ -18,7 +18,7 @@ const ProjectCard = ({ icon, title, description, href }) => {
       <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
       <p className="text-lg text-gray-600 mt-2">{description}</p>
       <a
-        href={href} target="_blank"
+        href={href} target="_blank"  rel="noopener noreferrer"
         className="text-lg inline-flex items-center justify-center mt-4 text-blue-600 hover:underline "
       >
         بیشتر <i className="fas fa-chevron-left mr-2"></i>

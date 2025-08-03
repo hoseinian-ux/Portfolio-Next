@@ -1,13 +1,14 @@
 
 
-import BoxProducts from "@/components/box";
-import ClientSide from "@/components/client-side";
-import ServerSide from "@/components/server-side";
+
 import '@/styles/globals.css'
 import Link from "next/link";
 import HomeSlider from "@/components/home-slider";
 import Hero from "@/components/hero";
 import Feachers from "@/components/feachers";
+import MoviesList from "@/components/MoviesList";
+
+import ProductSlider from '@/components/product-slider';
 
 export const metadata = {
   title: 'پورتفولیو حسینیان',
@@ -37,6 +38,9 @@ const HomePage = async () => {
       <Feachers/>
       <h2 className="text-3xl font-bold text-gray-800 mb-8 max-w-7xl mx-auto text-center"> اتصال به api و رندر صفحات کلاینت و سرور </h2>
       <HomeSlider data={data} />
+ <h2 className="text-3xl font-bold text-gray-800 mb-8 max-w-7xl mx-auto text-center"> اتصال به api و رندر  TanStack Query و ساختار هایدریشن </h2>
+    <ProductSlider/>
+
       </main>
     
   );

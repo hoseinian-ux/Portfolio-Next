@@ -117,10 +117,28 @@ export default function ContactPage() {
             <span className=""> @A_hosseinian2 </span>
           </div>
 
-          <a href="https://github.com/yourusername" target="_blank">
+          <a href="https://github.com/hoseinian-ux" target="_blank">
             <Github className="hover:text-amber-500" />
           </a>
         </div>
+
+        
+      </motion.div>
+
+       <motion.div
+        className="grid gap-4  bg-gray-50 p-6 rounded-lg shadow"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+      >
+        
+         <p className="text-xl font-bold text-justify leading-8">
+            با عرض ادب و احترام <br></br>لطفا چنانچه سایت و توانایی های بنده نواقصی داشت بر من ببخشید و با دادن فرصت کار عملی در این حوزه به من این امکان را دهید تا پیشرفت کنم و بتوانم برای شرکتتان مفید فایده باشم. من بسیار پر تلاش هستم و برای رفع ایراداتم همواره در تلاشم. <br></br> <span className="float-left"> با تشکر از شما </span>
+          </p>
+          
+        
+
+        
       </motion.div>
     </section>
   );
