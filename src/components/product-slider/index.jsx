@@ -11,39 +11,47 @@ export default function ProductSlider() {
   const mouseOver = useRef(false)
   const [currentSlide, setCurrentSlide] = useState(0)
 
-  const [sliderRef, instanceRef] = useKeenSlider(
-    {
-      loop: true,
-      renderMode: 'performance',
-      drag: true,
-      slides: {
-        perView: 4,
-        spacing: 15,
-        breakpoints: {
-          '(max-width: 768px)': {
-            perView: 1,
-          },
-          '(max-width: 1024px)': {
-            perView: 2,
-          },
+const [sliderRef, instanceRef] = useKeenSlider(
+  {
+    loop: true,
+    renderMode: 'performance',
+    drag: true,
+    slides: {
+      perView: 4,
+      spacing: 15,
+    },
+    breakpoints: {
+      '(max-width: 1024px)': {
+        slides: {
+          perView: 2,
+          spacing: 10,
         },
       },
-      created(slider) {
-        autoPlay(slider)
-      },
-      slideChanged(slider) {
-        setCurrentSlide(slider.track.details.rel)
+      '(max-width: 768px)': {
+        slides: {
+          perView: 1,
+          spacing: 8,
+        },
       },
     },
-    [
-      (slider) => {
-        slider.on('created', () => autoPlay(slider))
-        slider.on('dragStarted', () => clearTimeout(timer.current))
-        slider.on('animationEnded', () => autoPlay(slider))
-        slider.on('updated', () => autoPlay(slider))
-      },
-    ]
-  )
+    created(slider) {
+      autoPlay(slider)
+    },
+    slideChanged(slider) {
+      setCurrentSlide(slider.track.details.rel)
+    },
+  },
+  [
+    (slider) => {
+      slider.on('created', () => autoPlay(slider))
+      slider.on('dragStarted', () => clearTimeout(timer.current))
+      slider.on('animationEnded', () => autoPlay(slider))
+      slider.on('updated', () => autoPlay(slider))
+    },
+  ]
+)
+
+
 
   function autoPlay(slider) {
     clearTimeout(timer.current)

@@ -22,7 +22,7 @@ export default function Hero() {
       initial={{ opacity: 0, y: -20 }} 
       animate={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.6 }} 
-      className="text-4xl md:text-5xl font-extrabold leading-tight text-gray-900"
+      className="text-2xl sm:text-3xl md:text-4xl transition-all duration-500 font-extrabold leading-tight text-gray-900"
     >
       سلام، این وبسایت به عنوان نمونه کار بنده در زمینه برنامه نویسی React و Nextjs هست.
     </motion.h1>
@@ -30,7 +30,7 @@ export default function Hero() {
       initial={{ opacity: 0, y: -20 }} 
       animate={{ opacity: 1, y: 0 }} 
       transition={{ duration: 0.6 }} 
-      className="text-2xl md:text-3xl font-bold leading-tight text-gray-900 p-10"
+      className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight text-zinc-700 p-10 transition-all duration-500"
     >
       امیدوارم مورد نظر شما کارفرمای محترم قرار بگیرد و بتونم در کنار شما پیشرفت کنم و مفید فایده باشم.
     </motion.h2>
