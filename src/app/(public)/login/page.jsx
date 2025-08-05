@@ -35,7 +35,14 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+      <div className='mb-30'> 
+        <p className='text-xl md:text-2xl font-bold'>  برای تست و بررسی داشبورد پروژه که دارای ویژگی Crud محصولات هست. لطفا این اطلاعات را وارد کنید
+
+      نام کاربری : testuser
+       رمز عبور: 1234 
+        </p>
+      </div>
       <form
         onSubmit={handleSubmit}
         className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md space-y-6"

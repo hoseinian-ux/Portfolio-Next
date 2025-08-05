@@ -11,7 +11,7 @@ export default function ProductsPage() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch('https://fakestoreapi.com/products')
+        const res = await fetch('http://localhost:5000/products')
         if (!res.ok) throw new Error('خطا در دریافت محصولات')
         const data = await res.json()
         setProducts(data)
@@ -26,7 +26,7 @@ export default function ProductsPage() {
   }, [])
 
   return (
-    <div>
+    <div className="w-full  px-4">
       <h1 className="text-xl font-bold mb-4">محصولات</h1>
       {loading ? (
         <p>در حال بارگذاری...</p>

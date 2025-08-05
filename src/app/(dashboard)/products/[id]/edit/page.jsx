@@ -9,37 +9,35 @@ export default function EditProductPage() {
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const fetchProduct = async () => {
-      const res = await fetch(`https://dummyjson.com/products/${id}`)
-      const data = await res.json()
-      setProduct(data)
-      setLoading(false)
-    }
+useEffect(() => {
+  const fetchProduct = async () => {
+    const res = await fetch(`http://localhost:5000/products/${id}`);
+    const data = await res.json();
+    setProduct(data);
+    setLoading(false);
+  };
+  fetchProduct();
+}, [id]);
 
-    fetchProduct()
-  }, [id])
+const handleUpdate = async (e) => {
+  e.preventDefault();
+  const res = await fetch(`http://localhost:5000/products/${id}`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      title: product.title,
+      description: product.description,
+      price: product.price,
+      image: product.image,
+    }),
+  });
 
-  const handleUpdate = async (e) => {
-    e.preventDefault()
-    const res = await fetch(`https://dummyjson.com/products/${id}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        title: product.title,
-        description: product.description,
-        price: product.price,
-      }),
-    })
-
-    if (res.ok) {
-      router.push('/products')
-    } else {
-      alert('خطا در بروزرسانی محصول')
-    }
+  if (res.ok) {
+    router.push('/products');
+  } else {
+    alert('خطا در بروزرسانی محصول');
   }
+};
 
   if (loading) return <div>در حال بارگذاری...</div>
 
@@ -64,6 +62,13 @@ export default function EditProductPage() {
           type="number"
           value={product.price}
           onChange={(e) => setProduct({ ...product, price: e.target.value })}
+          className="w-full p-2 border rounded"
+        />
+        <input
+          type="text"
+          placeholder='لینک عکس '
+          value={product.image || ''}
+          onChange={(e) => setProduct({ ...product, image: e.target.value })}
           className="w-full p-2 border rounded"
         />
         <button className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
