@@ -1,7 +1,4 @@
-
-
 import { NextResponse } from 'next/server';
-
 
 const products = [
   { id: 1, title: 'محصول اول', description: 'توضیح اول', price: 100 },
