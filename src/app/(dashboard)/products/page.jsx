@@ -15,7 +15,7 @@ export default function ProductsPage() {
       if (!res.ok) throw new Error('خطا در دریافت محصولات');
       const data = await res.json();
       setProducts(data);
-    } catch (err: any) {
+    } catch (err ) {
       setError(err.message || 'خطای ناشناخته');
     } finally {
       setLoading(false);
