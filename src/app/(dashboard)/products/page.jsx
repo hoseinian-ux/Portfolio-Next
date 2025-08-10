@@ -11,8 +11,8 @@ export default function ProductsPage() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch('/api/products')
-        if (!res.ok) throw new Error('خطا در دریافت محصولات')
+        const res = await fetch('https://backend-portfolio-ixp8.onrender.com/products')
+
         const data = await res.json()
         setProducts(data)
       } catch (err: any) {
