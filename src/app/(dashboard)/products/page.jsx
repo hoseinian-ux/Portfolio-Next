@@ -9,22 +9,21 @@ export default function ProductsPage() {
   const [error, setError] = useState('')
 
   useEffect(() => {
-    async function fetchProducts() {
-      try {
-        const res = await fetch('https://backend-portfolio-ixp8.onrender.com/products')
-
-        const data = await res.json()
-        setProducts(data)
-      } catch (err: any) {
-        console.error('Error fetching products:', err)
-        setError(err.message || 'خطای ناشناخته')
-      } finally {
-        setLoading(false)
-      }
+  async function fetchProducts() {
+    try {
+      const res = await fetch('/api/products');  // آدرس رو به API داخلی تغییر بده
+      if (!res.ok) throw new Error('خطا در دریافت محصولات');
+      const data = await res.json();
+      setProducts(data);
+    } catch (err: any) {
+      setError(err.message || 'خطای ناشناخته');
+    } finally {
+      setLoading(false);
     }
+  }
+  fetchProducts();
+}, []);
 
-    fetchProducts()
-  }, [])
 
   return (
     <div className="w-full px-4">

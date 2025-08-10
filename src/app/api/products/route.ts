@@ -1,16 +1,13 @@
-import { NextResponse } from 'next/server'
+
+
+import { NextResponse } from 'next/server';
+
+
+const products = [
+  { id: 1, title: 'محصول اول', description: 'توضیح اول', price: 100 },
+  { id: 2, title: 'محصول دوم', description: 'توضیح دوم', price: 200 },
+];
 
 export async function GET() {
-  try {
-    const response = await fetch('https://backend-portfolio-ixp8.onrender.com/products')
-
-    if (!response.ok) {
-      return NextResponse.json({ error: 'خطا در دریافت محصولات از API خارجی' }, { status: response.status })
-    }
-
-    const data = await response.json()
-    return NextResponse.json(data)
-  } catch (error) {
-    return NextResponse.json({ error: 'خطای داخلی سرور' }, { status: 500 })
-  }
+  return NextResponse.json(products);
 }
