@@ -11,11 +11,12 @@ export default function ProductsPage() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch('http://localhost:5000/products')
+        const res = await fetch('/api/products')
         if (!res.ok) throw new Error('خطا در دریافت محصولات')
         const data = await res.json()
         setProducts(data)
-      } catch (err) {
+      } catch (err: any) {
+        console.error('Error fetching products:', err)
         setError(err.message || 'خطای ناشناخته')
       } finally {
         setLoading(false)
@@ -26,7 +27,7 @@ export default function ProductsPage() {
   }, [])
 
   return (
-    <div className="w-full  px-4">
+    <div className="w-full px-4">
       <h1 className="text-xl font-bold mb-4">محصولات</h1>
       {loading ? (
         <p>در حال بارگذاری...</p>

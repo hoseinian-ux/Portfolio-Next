@@ -11,7 +11,7 @@ export default function ProductList({ products }) {
     if (!confirmDelete) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/products/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`, {
         method: 'DELETE',
       });
 

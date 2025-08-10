@@ -11,7 +11,7 @@ export default function EditProductPage() {
 
 useEffect(() => {
   const fetchProduct = async () => {
-    const res = await fetch(`http://localhost:5000/products/${id}`);
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`);
     const data = await res.json();
     setProduct(data);
     setLoading(false);
@@ -21,7 +21,7 @@ useEffect(() => {
 
 const handleUpdate = async (e) => {
   e.preventDefault();
-  const res = await fetch(`http://localhost:5000/products/${id}`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
