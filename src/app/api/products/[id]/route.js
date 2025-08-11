@@ -1,28 +1,33 @@
 import { NextResponse } from 'next/server'
 
+// دیتای نمونه — در عمل باید از دیتابیس بیاری
 let products = [
   { id: 1, title: 'محصول اول', description: 'توضیح اول', price: 100 },
   { id: 2, title: 'محصول دوم', description: 'توضیح دوم', price: 200 },
 ]
 
-// GET - محصول با id خاص
+// دریافت محصول خاص
 export async function GET(req, { params }) {
-  const product = products.find(p => p.id == params.id)
-  if (!product) return NextResponse.json({ error: 'یافت نشد' }, { status: 404 })
+  const product = products.find(p => p.id === parseInt(params.id))
+  if (!product) {
+    return NextResponse.json({ message: 'محصول پیدا نشد' }, { status: 404 })
+  }
   return NextResponse.json(product)
 }
 
-// PUT - ویرایش محصول
+// بروزرسانی محصول
 export async function PUT(req, { params }) {
   const body = await req.json()
-  const index = products.findIndex(p => p.id == params.id)
-  if (index === -1) return NextResponse.json({ error: 'یافت نشد' }, { status: 404 })
-  products[index] = { ...products[index], ...body }
-  return NextResponse.json(products[index])
+  const productIndex = products.findIndex(p => p.id === parseInt(params.id))
+  if (productIndex === -1) {
+    return NextResponse.json({ message: 'محصول پیدا نشد' }, { status: 404 })
+  }
+  products[productIndex] = { ...products[productIndex], ...body }
+  return NextResponse.json(products[productIndex])
 }
 
-// DELETE - حذف محصول
+// حذف محصول
 export async function DELETE(req, { params }) {
-  products = products.filter(p => p.id != params.id)
+  products = products.filter(p => p.id !== parseInt(params.id))
   return NextResponse.json({ message: 'حذف شد' })
 }
