@@ -9,35 +9,37 @@ export default function EditProductPage() {
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
 
-useEffect(() => {
-  const fetchProduct = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`);
-    const data = await res.json();
-    setProduct(data);
-    setLoading(false);
-  };
-  fetchProduct();
-}, [id]);
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const res = await fetch(`/api/products/${id}`)
+      if (res.ok) {
+        const data = await res.json()
+        setProduct(data)
+      }
+      setLoading(false)
+    }
+    fetchProduct()
+  }, [id])
 
-const handleUpdate = async (e) => {
-  e.preventDefault();
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products/${id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      title: product.title,
-      description: product.description,
-      price: product.price,
-      image: product.image,
-    }),
-  });
+  const handleUpdate = async (e) => {
+    e.preventDefault()
+    const res = await fetch(`/api/products/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        title: product.title,
+        description: product.description,
+        price: product.price,
+        image: product.image,
+      }),
+    })
 
-  if (res.ok) {
-    router.push('/products');
-  } else {
-    alert('خطا در بروزرسانی محصول');
+    if (res.ok) {
+      router.push('/products')
+    } else {
+      alert('خطا در بروزرسانی محصول')
+    }
   }
-};
 
   if (loading) return <div>در حال بارگذاری...</div>
 
@@ -53,9 +55,7 @@ const handleUpdate = async (e) => {
         />
         <textarea
           value={product.description}
-          onChange={(e) =>
-            setProduct({ ...product, description: e.target.value })
-          }
+          onChange={(e) => setProduct({ ...product, description: e.target.value })}
           className="w-full p-2 border rounded"
         />
         <input
@@ -66,7 +66,7 @@ const handleUpdate = async (e) => {
         />
         <input
           type="text"
-          placeholder='لینک عکس '
+          placeholder="لینک عکس"
           value={product.image || ''}
           onChange={(e) => setProduct({ ...product, image: e.target.value })}
           className="w-full p-2 border rounded"

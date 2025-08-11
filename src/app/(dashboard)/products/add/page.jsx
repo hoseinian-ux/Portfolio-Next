@@ -12,7 +12,7 @@ export default function AddProductPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/products`, {
+    const res = await fetch('/api/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -20,7 +20,6 @@ export default function AddProductPage() {
       body: JSON.stringify({ title, description, price, image }),
     })
 
-    const data = await res.json()
     if (res.ok) {
       router.push('/products') // بعد از ایجاد، بازگشت به لیست
     } else {
