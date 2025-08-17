@@ -29,6 +29,13 @@ export default function Projects() {
       description: "طراحی وبسایت با تکنولوژی NextJs , Tailwind",
       href: "https://portfolio-next-5mju.vercel.app/",
     },
+    
+     {
+      icon: "/icons/n.svg",
+      title:" نمونه وبسایت فروشگاهی",
+      description: "طراحی وبسایت با تکنولوژی NextJs , TypeScript , SASS , leaflet",
+      href: "https://my-ecommerce-store-mzupcp9cm-hoseinian-uxs-projects.vercel.app/",
+    },
   ];
 
   return (
