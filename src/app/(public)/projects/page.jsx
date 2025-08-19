@@ -34,7 +34,7 @@ export default function Projects() {
       icon: "/icons/n.svg",
       title:" نمونه وبسایت فروشگاهی",
       description: "طراحی وبسایت با تکنولوژی NextJs , TypeScript , SASS , leaflet",
-      href: "https://my-ecommerce-store-mzupcp9cm-hoseinian-uxs-projects.vercel.app/",
+      href: "https://my-ecommerce-store-nine.vercel.app/",
     },
   ];
 
